@@ -4,8 +4,8 @@ import * as Yup from "yup";
 import ReactPaginate from "react-paginate";
 const PatientList = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const reportsPerPage = 2;
-  const [reports, setReports] = useState([
+  const reportsPerPage = 5;
+  const reports = [
     {
       orderNo: "A19023",
       date: "01/05/2023",
@@ -46,7 +46,147 @@ const PatientList = () => {
       eta: "03/05/2023",
       status: "Ready",
     },
-  ]);
+    {
+      orderNo: "A19027",
+      date: "02/05/2023",
+      patientName: "John Doe",
+      hospitalId: "DH2023/0001250",
+      testName: "Complete Blood Count",
+      doctorName: "Dr. Smith Johnson",
+      eta: "04/05/2023",
+      status: "Ready",
+    },
+    {
+      orderNo: "A19028",
+      date: "02/05/2023",
+      patientName: "Jane Doe",
+      hospitalId: "DH2023/0001251",
+      testName: "Liver Function Test",
+      doctorName: "Dr. Emily Davis",
+      eta: "04/05/2023",
+      status: "Partial Report",
+    },
+    {
+      orderNo: "A19029",
+      date: "03/05/2023",
+      patientName: "Michael Smith",
+      hospitalId: "DH2023/0001252",
+      testName: "Kidney Function Test",
+      doctorName: "Dr. John Brown",
+      eta: "05/05/2023",
+      status: "Ready",
+    },
+    {
+      orderNo: "A19030",
+      date: "03/05/2023",
+      patientName: "Linda Johnson",
+      hospitalId: "DH2023/0001253",
+      testName: "Thyroid Function Test",
+      doctorName: "Dr. Lisa Wilson",
+      eta: "05/05/2023",
+      status: "Lab dropped",
+    },
+    {
+      orderNo: "A19031",
+      date: "04/05/2023",
+      patientName: "Robert Brown",
+      hospitalId: "DH2023/0001254",
+      testName: "Blood Glucose Test",
+      doctorName: "Dr. Michael White",
+      eta: "06/05/2023",
+      status: "Ready",
+    },
+    {
+      orderNo: "A19032",
+      date: "04/05/2023",
+      patientName: "Mary Davis",
+      hospitalId: "DH2023/0001255",
+      testName: "Lipid Profile",
+      doctorName: "Dr. Sarah Martin",
+      eta: "06/05/2023",
+      status: "Partial Report",
+    },
+    {
+      orderNo: "A19033",
+      date: "05/05/2023",
+      patientName: "William Martinez",
+      hospitalId: "DH2023/0001256",
+      testName: "Urine Analysis",
+      doctorName: "Dr. Karen Lee",
+      eta: "07/05/2023",
+      status: "Ready",
+    },
+    {
+      orderNo: "A19034",
+      date: "05/05/2023",
+      patientName: "Patricia Anderson",
+      hospitalId: "DH2023/0001257",
+      testName: "Electrolyte Panel",
+      doctorName: "Dr. Daniel Hernandez",
+      eta: "07/05/2023",
+      status: "Lab dropped",
+    },
+    {
+      orderNo: "A19035",
+      date: "06/05/2023",
+      patientName: "Charles Martinez",
+      hospitalId: "DH2023/0001258",
+      testName: "Cardiac Enzyme Test",
+      doctorName: "Dr. Matthew Taylor",
+      eta: "08/05/2023",
+      status: "Ready",
+    },
+    {
+      orderNo: "A19036",
+      date: "06/05/2023",
+      patientName: "Elizabeth Thomas",
+      hospitalId: "DH2023/0001259",
+      testName: "Hemoglobin Test",
+      doctorName: "Dr. Anthony Moore",
+      eta: "08/05/2023",
+      status: "Partial Report",
+    },
+    {
+      orderNo: "A19037",
+      date: "07/05/2023",
+      patientName: "Joseph Robinson",
+      hospitalId: "DH2023/0001260",
+      testName: "Calcium Test",
+      doctorName: "Dr. Nancy Clark",
+      eta: "09/05/2023",
+      status: "Ready",
+    },
+    {
+      orderNo: "A19038",
+      date: "07/05/2023",
+      patientName: "Barbara Martinez",
+      hospitalId: "DH2023/0001261",
+      testName: "Magnesium Test",
+      doctorName: "Dr. Christopher Rodriguez",
+      eta: "09/05/2023",
+      status: "Lab dropped",
+    },
+    {
+      orderNo: "A19039",
+      date: "08/05/2023",
+      patientName: "Thomas Garcia",
+      hospitalId: "DH2023/0001262",
+      testName: "Iron Test",
+      doctorName: "Dr. Joshua Lewis",
+      eta: "10/05/2023",
+      status: "Ready",
+    },
+    {
+      orderNo: "A19040",
+      date: "08/05/2023",
+      patientName: "Susan Martinez",
+      hospitalId: "DH2023/0001263",
+      testName: "Phosphate Test",
+      doctorName: "Dr. Patricia Walker",
+      eta: "10/05/2023",
+      status: "Partial Report",
+    },
+  ];
 
   const formik = useFormik({
     initialValues: {
@@ -221,7 +361,7 @@ const PatientList = () => {
                 </tr>
               </thead>
               <tbody>
-                {currentReports.map((report, index) => (
+                {currentReports?.map((report, index) => (
                   <tr key={index}>
                     <td className="py-2 px-4 border-b">{report.orderNo}</td>
                     <td className="py-2 px-4 border-b">{report.date}</td>
